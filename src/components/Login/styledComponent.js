@@ -63,3 +63,5 @@ export const ShowPasswordContainer = styled.div`
   padding-top: 5px;
   //   border:2px solid pink;
 `
+
+export const SubmitBtn = styled.button``
