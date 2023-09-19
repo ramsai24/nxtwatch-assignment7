@@ -1,6 +1,13 @@
 import {Component} from 'react'
 import NxtWatchContext from '../../context/nxtWatchContext'
-import {Div, Form, LogoImg, Input, Label} from './styledComponent'
+import {
+  Div,
+  Form,
+  LogoImg,
+  Input,
+  Label,
+  ShowPasswordContainer,
+} from './styledComponent'
 
 class Login extends Component {
   //   state = {username: '', password: ''}
@@ -24,11 +31,15 @@ class Login extends Component {
                 <Label color={isDark} htmlFor="username">
                   USERNAME
                 </Label>
-                <Input type="text" placeholder="Username" />
-                <Label color={isDark} htmlFor="username">
+                <Input id="username" type="text" placeholder="Username" />
+                <Label color={isDark} htmlFor="password">
                   PASSWORD
                 </Label>
-                <Input type="text" placeholder="Password" />
+                <Input id="password" type="text" placeholder="Password" />
+                <ShowPasswordContainer>
+                  <Input type="checkbox" />
+                  <Label color={isDark}>Show Password</Label>
+                </ShowPasswordContainer>
 
                 <button type="button" onClick={themeChange}>
                   button

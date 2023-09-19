@@ -36,6 +36,10 @@ export const Label = styled.label`
   color: ${props => (props.color ? null : '#7e858e')};
   font-size: 16px;
   margin: 5px;
+  margin-top: 0px;
+  width: 200px;
+  flex-shrink: 0;
+  border: 1px solid yellow;
 `
 export const Input = styled.input`
   width: 90%;
@@ -45,4 +49,17 @@ export const Input = styled.input`
   border: 1px solid #cccccc;
   padding: 5px;
   color: #7e858e;
+  font-weight: 500;
+`
+
+export const ShowPasswordContainer = styled.div`
+  padding: 0px;
+  display: flex;
+  //   background-color: transparent;
+  //   flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-self: flex-start;
+  padding-top: 5px;
+  //   border:2px solid pink;
 `
