@@ -1,6 +1,6 @@
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import {Component} from 'react'
-// import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Login from './components/Login'
 import Home from './components/Home/index'
 
@@ -25,7 +25,7 @@ class App extends Component {
           <BrowserRouter>
             <Switch>
               <Route exact path="/login" component={Login} />
-              <Route exact path="/" component={Home} />
+              <ProtectedRoute exact path="/" component={Home} />
             </Switch>
           </BrowserRouter>
         </>

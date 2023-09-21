@@ -65,6 +65,7 @@ class Login extends Component {
             <Div bgColor={isDark} color={isDark}>
               <Form bgColor={isDark} onSubmit={this.submitLoginCredentials}>
                 <LogoImg
+                  alt="nxt watch logo"
                   src={
                     isDark
                       ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
