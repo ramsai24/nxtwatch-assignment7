@@ -1,0 +1,18 @@
+.icons-color {
+  color: none;
+  margin-top: 4px;
+  margin-right: 20px;
+}
+
+.linkEl {
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.para {
+  font-weight: 600;
+  
+}

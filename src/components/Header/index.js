@@ -1,16 +1,21 @@
-import {Redirect} from 'react-router-dom'
-import nxtWatchContext from '../../context/nxtWatchContext'
-import {Div, Img, LogoBtn} from './styledComponent'
+import {withRouter} from 'react-router-dom'
+import {FaMoon} from 'react-icons/fa'
+import {MdOutlineLightMode} from 'react-icons/md'
+import NxtWatchContext from '../../context/nxtWatchContext'
+import {Div, Img, LogoBtn, ThemeBtn} from './styledComponent'
 
-const Header = () => (
-  <nxtWatchContext.Consumer>
+const Header = props => (
+  <NxtWatchContext.Consumer>
     {value => {
-      const {isDark} = value
+      const {isDark, themeChange} = value
 
-      const toHome = () => <Redirect to="/" />
+      const toHome = () => {
+        const {history} = props
+        history.replace('/')
+      }
 
       return (
-        <Div>
+        <Div bgColor={isDark}>
           <LogoBtn type="button" onClick={toHome}>
             {isDark ? (
               <Img
@@ -24,10 +29,15 @@ const Header = () => (
               />
             )}
           </LogoBtn>
+          <Div>
+            <ThemeBtn type="button" onClick={themeChange}>
+              {isDark ? <MdOutlineLightMode /> : <FaMoon />}
+            </ThemeBtn>
+          </Div>
         </Div>
       )
     }}
-  </nxtWatchContext.Consumer>
+  </NxtWatchContext.Consumer>
 )
 
-export default Header
+export default withRouter(Header)
