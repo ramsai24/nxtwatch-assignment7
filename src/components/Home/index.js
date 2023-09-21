@@ -1,9 +1,16 @@
 // import Cookies from 'js-cookie'
 // import {Link} from 'react-router-dom'
-import {Div, HomeContainer} from './styledComponent'
+import {
+  Div,
+  HomeContainer,
+  LeftNavAndBannerAndVideosContainer,
+  //   BannerAndVideosContainer,
+} from './styledComponent'
 import Header from '../Header'
 import LeftMenuBar from '../LeftMenuBar'
 import NxtWatchContext from '../../context/nxtWatchContext'
+import PrepaidBanner from '../PrepaidBanner'
+import HomeVideoAPIUrl from '../homeVideoAPIUrl'
 
 const Home = () => (
   <NxtWatchContext.Consumer>
@@ -13,9 +20,13 @@ const Home = () => (
         <HomeContainer bgColor={isDark} data-testid="home">
           <Header />
 
-          <Div>
+          <LeftNavAndBannerAndVideosContainer>
             <LeftMenuBar />
-          </Div>
+            <Div>
+              <PrepaidBanner />
+              <HomeVideoAPIUrl />
+            </Div>
+          </LeftNavAndBannerAndVideosContainer>
         </HomeContainer>
       )
     }}

@@ -1,8 +1,17 @@
 import {withRouter} from 'react-router-dom'
 import {FaMoon} from 'react-icons/fa'
-import {MdOutlineLightMode} from 'react-icons/md'
+import {CiLight} from 'react-icons/ci'
+import Cookies from 'js-cookie'
 import NxtWatchContext from '../../context/nxtWatchContext'
-import {Div, Img, LogoBtn, ThemeBtn} from './styledComponent'
+import {
+  HeaderContainer,
+  ProfileImg,
+  LogoBtn,
+  ThemeBtn,
+  TPLContainer,
+  LogoutBtn,
+  LogoImg,
+} from './styledComponent'
 
 const Header = props => (
   <NxtWatchContext.Consumer>
@@ -14,27 +23,51 @@ const Header = props => (
         history.replace('/')
       }
 
+      const onLogout = () => {
+        const {history} = props
+
+        Cookies.remove('jwt_token')
+        history.replace('/login')
+      }
+
       return (
-        <Div bgColor={isDark}>
+        <HeaderContainer bgColor={isDark}>
           <LogoBtn type="button" onClick={toHome}>
             {isDark ? (
-              <Img
+              <LogoImg
                 alt="nxt watch logo"
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
               />
             ) : (
-              <Img
+              <LogoImg
                 alt="nxt watch logo"
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
               />
             )}
           </LogoBtn>
-          <Div>
+          <TPLContainer>
             <ThemeBtn type="button" onClick={themeChange}>
-              {isDark ? <MdOutlineLightMode /> : <FaMoon />}
+              {isDark ? (
+                <CiLight
+                  style={{
+                    color: ' #ffffff',
+                    'font-size': '30px',
+                    'font-weight': '900',
+                  }}
+                  className="light-mode"
+                />
+              ) : (
+                <FaMoon style={{fontSize: '30px'}} />
+              )}
             </ThemeBtn>
-          </Div>
-        </Div>
+            <ThemeBtn>
+              <ProfileImg src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png" />
+            </ThemeBtn>
+            <LogoutBtn isDark={isDark} type="button" onClick={onLogout}>
+              Logout
+            </LogoutBtn>
+          </TPLContainer>
+        </HeaderContainer>
       )
     }}
   </NxtWatchContext.Consumer>

@@ -28,24 +28,33 @@ const LeftMenuBar = () => (
         <LeftNavContainer bgColor={isDark}>
           <Nav>
             <Link className="linkEl" to="/">
-              <AiFillHome className="icons-color" />
-              <LinkPara>Home</LinkPara>
+              <Div bgColor={isDark}>
+                <AiFillHome className="icons-color" />
+                <LinkPara>Home</LinkPara>
+              </Div>
             </Link>
             <Link className="linkEl" to="/trending">
-              <LiaHotjar className="icons-color" />
-              <LinkPara>Trending</LinkPara>
+              <Div bgColor={isDark}>
+                <LiaHotjar className="icons-color" />
+                <LinkPara>Trending</LinkPara>
+              </Div>
             </Link>
+
             <Link className="linkEl" to="/gaming">
-              <SiYoutubegaming className="icons-color" />{' '}
-              <LinkPara>Gaming</LinkPara>
+              <Div bgColor={isDark}>
+                <SiYoutubegaming className="icons-color" />{' '}
+                <LinkPara>Gaming</LinkPara>
+              </Div>
             </Link>
             <Link className="linkEl" to="/savedvideos">
-              <MdPlaylistAdd className="icons-color" />
+              <Div bgColor={isDark}>
+                <MdPlaylistAdd className="icons-color" />
 
-              <LinkPara>Saved Videos</LinkPara>
+                <LinkPara>Saved Videos</LinkPara>
+              </Div>
             </Link>
           </Nav>
-          <Div>
+          <Div style={{flexDirection: 'column'}}>
             <ContentPara>CONTACT US</ContentPara>
             <SocialMediaIcons>
               <Img
@@ -60,10 +69,10 @@ const LeftMenuBar = () => (
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
                 alt="linked in logo"
               />
-              <Paragraph className="para">
-                Enjoy! Now to see your channels and recommendations!
-              </Paragraph>
             </SocialMediaIcons>
+            <Paragraph className="para">
+              Enjoy! Now to see your channels and recommendations!
+            </Paragraph>
           </Div>
         </LeftNavContainer>
       )

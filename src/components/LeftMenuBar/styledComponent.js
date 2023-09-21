@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const Div = styled.div``
+export const Div = styled.div`
+  color: ${props => (props.bgColor ? '#f4f4f4' : '#212121')};
+  display: flex;
+  border: 1px solid pink;
+`
 export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
@@ -17,15 +21,18 @@ export const LogoBtn = styled.button``
 
 export const Paragraph = styled.p`
   margin: 0px;
+  //   color: ${props => (props.bgColor ? '#212121' : '#f4f4f4')};
 `
 
 export const LeftNavContainer = styled(Div)`
   background-color: ${props => (props.bgColor ? '#212121' : '#f4f4f4')};
+  color: ${props => (props.bgColor ? '#212121' : '#f4f4f4')};
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
-  width: 35%;
+  min-height: 90vh;
+  width: 300px;
   border: 1px solid green;
   padding: 20px;
 `
