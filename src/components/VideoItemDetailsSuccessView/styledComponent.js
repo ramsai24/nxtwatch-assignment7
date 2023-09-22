@@ -7,9 +7,15 @@ export const Div = styled.div`
   height: 100vh;
 `
 
+export const ReactPlayerContainer = styled.div`
+  border: 5px solid skyblue;
+`
+
 export const Img = styled.img``
 
-export const Heading = styled.h1``
+export const Heading = styled.h1`
+  border: 1px solid red;
+`
 
 export const Para = styled.p``
 

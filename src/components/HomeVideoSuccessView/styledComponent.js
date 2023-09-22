@@ -22,7 +22,7 @@ export const UL = styled.ul`
   flex-shrink: 0;
 `
 export const Li = styled.li`
-  width: 350px;
+  width: 400px;
   border: 1px solid pink;
   display: flex;
   flex-direction: column;
