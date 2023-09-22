@@ -1,18 +1,26 @@
 import styled from 'styled-components'
 
-export const Div = styled.div`
-  flex-grow: 1;
-`
+export const Div = styled.div``
 
 export const HomeContainer = styled(Div)`
   background-color: ${props => (props.bgColor ? '#181818' : '#f9f9f9')};
-  height: 100vh;
+
   background-size: cover;
   border: 2px solid orange;
+  height: 100vh;
+  //   flex-shrink: 0;
 `
 export const LeftNavAndBannerAndVideosContainer = styled(Div)`
   display: flex;
   align-items: flex-start;
+  flex-shrink: 0;
+`
+export const RightContainer = styled.div`
+  background-color: ${props => (props.isDark ? '#000000' : '#f9f9f9')};
+
+  flex-grow: 1;
+  overflow: auto;
+  height: 90vh;
 `
 
 export const BannerAndVideosContainer = styled(Div)`

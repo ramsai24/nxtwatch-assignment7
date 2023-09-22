@@ -35,6 +35,7 @@ export const LeftNavContainer = styled(Div)`
   width: 300px;
   border: 1px solid green;
   padding: 20px;
+  flex-shrink: 0;
 `
 
 export const LinkPara = styled(Paragraph)``

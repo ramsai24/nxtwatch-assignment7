@@ -3,6 +3,7 @@ import {Component} from 'react'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Login from './components/Login'
 import Home from './components/Home/index'
+import VideoDetails from './components/VideoDetails'
 import Trending from './components/Trending'
 
 import NxtwatchContext from './context/nxtWatchContext'
@@ -41,6 +42,11 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <ProtectedRoute exact path="/" component={Home} />
               <ProtectedRoute exact path="/trending" component={Trending} />
+              <ProtectedRoute
+                exact
+                path="/videos/:id"
+                component={VideoDetails}
+              />
             </Switch>
           </BrowserRouter>
         </>

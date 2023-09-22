@@ -51,8 +51,8 @@ const Header = props => (
                 <CiLight
                   style={{
                     color: ' #ffffff',
-                    'font-size': '30px',
-                    'font-weight': '900',
+                    fontSize: '30px',
+                    fontWeight: '900',
                   }}
                   className="light-mode"
                 />

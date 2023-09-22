@@ -1,13 +1,14 @@
 // import Cookies from 'js-cookie'
 // import {Link} from 'react-router-dom'
 import {
-  Div,
+  RightContainer,
   HomeContainer,
   LeftNavAndBannerAndVideosContainer,
   //   BannerAndVideosContainer,
 } from './styledComponent'
 import Header from '../Header'
 import LeftMenuBar from '../LeftMenuBar'
+
 import NxtWatchContext from '../../context/nxtWatchContext'
 import PrepaidBanner from '../PrepaidBanner'
 import HomeVideoAPIUrl from '../homeVideoAPIUrl'
@@ -22,10 +23,10 @@ const Home = () => (
 
           <LeftNavAndBannerAndVideosContainer>
             <LeftMenuBar />
-            <Div>
+            <RightContainer isDark={isDark}>
               <PrepaidBanner />
               <HomeVideoAPIUrl />
-            </Div>
+            </RightContainer>
           </LeftNavAndBannerAndVideosContainer>
         </HomeContainer>
       )
