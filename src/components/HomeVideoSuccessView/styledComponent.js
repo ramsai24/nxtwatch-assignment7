@@ -21,7 +21,12 @@ export const UL = styled.ul`
 
   flex-shrink: 0;
 `
-export const Li = styled.li``
+export const Li = styled.li`
+  width: 350px;
+  border: 1px solid pink;
+  display: flex;
+  flex-direction: column;
+`
 
 export const Para = styled.p``
 
