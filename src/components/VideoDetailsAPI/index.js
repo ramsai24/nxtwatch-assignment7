@@ -21,29 +21,27 @@ const apiStatusConstant = {
 }
 
 class VideoDetails extends Component {
-  state = {videosDetails: '', status: apiStatusConstant.initial}
+  state = {videosDetails: '', status: apiStatusConstant.initial, like: ''}
 
   componentDidMount() {
     this.getVideoDetails()
   }
 
-  channelSnakeToCammel = a => {
-    console.log(a)
-  }
-  //   ({
-  //       console.log(a)
-  //     name: a.name,
-  //     profileImageUrl: a.profile_image_url,
-  //     subscriberCount: a.subscriber_count,
-  //   })
+  channelSnakeToCammel = a => ({
+    name: a.name,
+    profileImageUrl: a.profile_image_url,
+    subscriberCount: a.subscriber_count,
+  })
+
+  //  {
+  //     console.log(a)
+  //   }
 
   getVideoDetails = async () => {
     const {match} = this.props
     const {params} = match
     const {id} = params
     this.setState({status: apiStatusConstant.loading})
-
-    const {search} = this.state
 
     const jwtToken = Cookies.get('jwt_token')
 
@@ -58,7 +56,7 @@ class VideoDetails extends Component {
 
     const response = await fetch(url, options)
     const dataVideoDetails = await response.json()
-    console.log(dataVideoDetails)
+    // console.log(dataVideoDetails)
 
     const data = dataVideoDetails.video_details
 
@@ -74,7 +72,7 @@ class VideoDetails extends Component {
         description: data.description,
       }
 
-      console.log(dataUpdated)
+      //   console.log(dataUpdated)
 
       this.setState({
         videosDetails: dataUpdated,
@@ -107,12 +105,29 @@ class VideoDetails extends Component {
     </NxtWatchContext.Consumer>
   )
 
+  onClickLike = () => {
+    this.setState(prev => ({like: !prev.like}))
+  }
+
+  isSave = value => {
+    this.setState(prev => ({
+      videosDetails: {...prev.videosDetails, saved: value},
+    }))
+  }
+
   renderFailureView = () => <FailureView onRetry={this.onRetry} />
 
   renderSuccessView = () => {
-    const {videosDetails} = this.state
-    console.log(videosDetails)
-    return <VideoItemDetailsSuccessView data={videosDetails} />
+    const {videosDetails, like} = this.state
+    // console.log(videosDetails)
+    return (
+      <VideoItemDetailsSuccessView
+        data={videosDetails}
+        isLike={this.onClickLike}
+        like={like}
+        save={this.isSave}
+      />
+    )
   }
 
   renderView = () => {

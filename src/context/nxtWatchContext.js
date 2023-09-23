@@ -5,6 +5,8 @@ const NxtWatchContext = React.createContext({
   themeChange: () => {},
   selectionLeftMenuNav: '',
   updateLeftMenuNav: () => {},
+  savedVideosList: '',
+  updateSavedVideosList: () => {},
 })
 
 export default NxtWatchContext

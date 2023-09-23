@@ -3,7 +3,7 @@ import {Component} from 'react'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Login from './components/Login'
 import Home from './components/Home/index'
-import VideoDetails from './components/VideoDetails'
+import VideoDetails from './components/VideoDetailsAPI'
 import Trending from './components/Trending'
 
 import NxtwatchContext from './context/nxtWatchContext'
@@ -11,12 +11,27 @@ import './App.css'
 
 // Replace your code here
 class App extends Component {
-  state = {isDark: false, selectionLeftMenuNav: ''}
+  state = {isDark: false, selectionLeftMenuNav: '', savedVideosList: []}
 
   themeChange = () => {
     this.setState(prev => ({
       isDark: !prev.isDark,
     }))
+  }
+
+  updateSavedVideosList = (videoData, id) => {
+    const {savedVideosList} = this.state
+
+    const check = savedVideosList.some(each => each.id === id)
+
+    if (check) {
+      const filterList = savedVideosList.filter(each => each.id !== id)
+      this.setState({savedVideosList: filterList})
+    } else {
+      this.setState(prev => ({
+        savedVideosList: [...prev.savedVideosList, videoData],
+      }))
+    }
   }
 
   updateLeftMenuNav = () => {
@@ -26,7 +41,8 @@ class App extends Component {
   }
 
   render() {
-    const {isDark, selectionLeftMenuNav} = this.state
+    const {isDark, selectionLeftMenuNav, savedVideosList} = this.state
+    console.log(savedVideosList)
     return (
       <NxtwatchContext.Provider
         value={{
@@ -34,6 +50,8 @@ class App extends Component {
           themeChange: this.themeChange,
           selectionLeftMenuNav,
           updateLeftMenuNav: this.updateLeftMenuNav,
+          savedVideosList,
+          updateSavedVideosList: this.updateSavedVideosList,
         }}
       >
         <>
