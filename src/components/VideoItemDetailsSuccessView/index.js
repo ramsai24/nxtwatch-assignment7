@@ -56,9 +56,10 @@ class VideoItemDetailsSuccessView extends Component {
         {value => {
           const {isDark, updateSavedVideosList, savedVideosList} = value
 
+          const isSave = savedVideosList.some(each => each.id === id)
+          console.log(isSave)
+
           const isSaved = () => {
-            const isSave = savedVideosList.some(each => each.id === id)
-            console.log(isSave)
             updateSavedVideosList(data, id)
 
             if (isSave) {
@@ -111,7 +112,7 @@ class VideoItemDetailsSuccessView extends Component {
                     <LikeAndDisLikeSaveBtn
                       type="button"
                       onClick={isSaved}
-                      checked={saved}
+                      checked={isSave}
                     >
                       <RowDiv>
                         <MdPlaylistAdd />
