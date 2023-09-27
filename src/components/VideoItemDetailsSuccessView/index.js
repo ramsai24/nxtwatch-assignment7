@@ -29,12 +29,13 @@ import './index.css'
 
 class VideoItemDetailsSuccessView extends Component {
   render() {
-    const {data, isLike, like, save} = this.props
-    // console.log(`like ${like}`)
+    const {data, isLike, isDisLike, like, disLike, save} = this.props
+    console.log(`like ${like}`)
+    console.log(`Dislike ${disLike}`)
     // console.log(!like)
 
     //   let checked = ''
-    console.log(data)
+    // console.log(data)
     const {
       id,
       title,
@@ -44,10 +45,9 @@ class VideoItemDetailsSuccessView extends Component {
       viewCount,
       publishedAt,
       description,
-      saved,
     } = data
     //   console.log(videoUrl)
-    console.log(`saved :${saved}`)
+    // console.log(`saved :${saved}`)
 
     const {name, profileImageUrl, subscriberCount} = channel
 
@@ -57,7 +57,6 @@ class VideoItemDetailsSuccessView extends Component {
           const {isDark, updateSavedVideosList, savedVideosList} = value
 
           const isSave = savedVideosList.some(each => each.id === id)
-          console.log(isSave)
 
           const isSaved = () => {
             updateSavedVideosList(data, id)
@@ -91,7 +90,7 @@ class VideoItemDetailsSuccessView extends Component {
                   <RowDiv>
                     <LikeAndDisLikeSaveBtn
                       type="button"
-                      checked={like === '' ? '' : like}
+                      checked={like}
                       onClick={isLike}
                     >
                       <RowDiv>
@@ -101,8 +100,8 @@ class VideoItemDetailsSuccessView extends Component {
                     </LikeAndDisLikeSaveBtn>
                     <LikeAndDisLikeSaveBtn
                       type="button"
-                      checked={like === '' ? '' : !like}
-                      onClick={isLike}
+                      checked={disLike}
+                      onClick={isDisLike}
                     >
                       <RowDiv>
                         <BiDislike />

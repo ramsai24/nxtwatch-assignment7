@@ -21,7 +21,12 @@ const apiStatusConstant = {
 }
 
 class VideoDetails extends Component {
-  state = {videosDetails: '', status: apiStatusConstant.initial, like: ''}
+  state = {
+    videosDetails: '',
+    status: apiStatusConstant.initial,
+    like: '',
+    disLike: '',
+  }
 
   componentDidMount() {
     this.getVideoDetails()
@@ -106,7 +111,11 @@ class VideoDetails extends Component {
   )
 
   onClickLike = () => {
-    this.setState(prev => ({like: !prev.like}))
+    this.setState({like: true, disLike: false})
+  }
+
+  onClickDisLike = () => {
+    this.setState({disLike: true, like: false})
   }
 
   isSave = value => {
@@ -118,13 +127,15 @@ class VideoDetails extends Component {
   renderFailureView = () => <FailureView onRetry={this.onRetry} />
 
   renderSuccessView = () => {
-    const {videosDetails, like} = this.state
+    const {videosDetails, like, disLike} = this.state
     // console.log(videosDetails)
     return (
       <VideoItemDetailsSuccessView
         data={videosDetails}
         isLike={this.onClickLike}
+        isDisLike={this.onClickDisLike}
         like={like}
+        disLike={disLike}
         save={this.isSave}
       />
     )
