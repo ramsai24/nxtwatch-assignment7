@@ -28,7 +28,7 @@ class Login extends Component {
 
     const payload = {username, password}
 
-    const url = 'https://apis.ccbp.in/login'
+    const url = 'https:/apis.ccbp.in/login'
     const options = {
       method: 'POST',
       body: JSON.stringify(payload),
