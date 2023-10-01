@@ -1,11 +1,11 @@
 import {formatDistanceToNow} from 'date-fns'
 
-import {Div, Img, Heading, Para} from './styledComponent'
+import {Div, Img, Heading, Para, RowDiv} from './styledComponent'
 import NxtWatchContext from '../../context/nxtWatchContext'
 
-const Video = props => {
+const SavedVideoEach = props => {
   const {videoData} = props
-  //   console.log(videoData)
+  console.log(videoData)
 
   const {channel, publishedAt, thumbnailUrl, title, viewCount} = videoData
 
@@ -24,11 +24,14 @@ const Video = props => {
               <div>
                 <Heading>{title}</Heading>
                 <Para>{name}</Para>
-                <div>
-                  <Para>{viewCount}</Para>
-                  <Para>.</Para>
-                  <Para>{formatDistanceToNow(new Date(`${publishedAt}`))}</Para>
-                </div>
+                <RowDiv>
+                  <Para>{viewCount} views</Para>
+                  <Para> . </Para>
+                  <Para>
+                    {'  '}
+                    {formatDistanceToNow(new Date(`${publishedAt}`))}
+                  </Para>
+                </RowDiv>
               </div>
             </div>
           </Div>
@@ -38,4 +41,4 @@ const Video = props => {
   )
 }
 
-export default Video
+export default SavedVideoEach

@@ -1,10 +1,12 @@
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Redirect, Switch, Route} from 'react-router-dom'
 import {Component} from 'react'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Login from './components/Login'
 import Home from './components/Home/index'
 import VideoDetails from './components/VideoDetailsAPI'
 import Trending from './components/Trending'
+import SavedVideo from './components/SavedVideos'
+import NotFound from './components/NotFound'
 
 import NxtwatchContext from './context/nxtWatchContext'
 import './App.css'
@@ -65,6 +67,13 @@ class App extends Component {
                 path="/videos/:id"
                 component={VideoDetails}
               />
+              <ProtectedRoute
+                exact
+                path="/saved-videos"
+                component={SavedVideo}
+              />
+              <Route exact path="/not-found" component={NotFound} />
+              <Redirect to="/not-found" />
             </Switch>
           </BrowserRouter>
         </>

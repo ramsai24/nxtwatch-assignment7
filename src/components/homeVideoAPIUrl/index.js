@@ -6,6 +6,7 @@ import NxtWatchContext from '../../context/nxtWatchContext'
 import {Div} from './styledComponent'
 import SearchComponent from '../searchComponent'
 import FailureView from '../FailureView'
+import NoSearch from '../NoSearch'
 import HomeVideoSuccessView from '../HomeVideoSuccessView'
 
 const apiStatusConstant = {
@@ -50,7 +51,7 @@ class HomeVideoAPIUrl extends Component {
 
     const response = await fetch(url, options)
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
 
     if (response.ok) {
       const dataUpdated = data.videos.map(each => ({
@@ -108,7 +109,17 @@ class HomeVideoAPIUrl extends Component {
 
   renderSuccessView = () => {
     const {videosData} = this.state
-    return <HomeVideoSuccessView data={videosData} />
+
+    const nonempty = videosData.length !== 0
+
+    switch (nonempty) {
+      case true:
+        return <HomeVideoSuccessView data={videosData} />
+      case false:
+        return <NoSearch onRetry={this.onRetry} />
+      default:
+        return null
+    }
   }
 
   renderVideos = () => {

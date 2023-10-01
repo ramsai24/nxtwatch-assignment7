@@ -70,7 +70,7 @@ class VideoDetails extends Component {
         id: data.id,
         title: data.title,
         videoUrl: data.video_url,
-        thumbnailUrl: data.thumnail_url,
+        thumbnailUrl: data.thumbnail_url,
         channel: this.channelSnakeToCammel(data.channel),
         viewCount: data.view_count,
         publishedAt: data.published_at,

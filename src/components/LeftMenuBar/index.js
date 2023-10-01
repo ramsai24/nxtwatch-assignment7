@@ -46,7 +46,7 @@ const LeftMenuBar = () => (
                 <LinkPara>Gaming</LinkPara>
               </Div>
             </Link>
-            <Link className="linkEl" to="/savedvideos">
+            <Link className="linkEl" to="/saved-videos">
               <Div bgColor={isDark}>
                 <MdPlaylistAdd className="icons-color" />
 
