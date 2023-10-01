@@ -24,12 +24,13 @@ class Login extends Component {
   submitLoginCredentials = async event => {
     event.preventDefault()
     const {username, password} = this.state
+    console.log(username, password)
 
     const payload = {username, password}
 
-    const url = 'https:/apis.ccbp.in/login'
+    const url = 'https://apis.ccbp.in/login'
     const options = {
-      method: 'post',
+      method: 'POST',
       body: JSON.stringify(payload),
     }
     const call = await fetch(url, options)
@@ -62,7 +63,7 @@ class Login extends Component {
           const {isDark} = value
           console.log(isDark)
           return (
-            <Div bgColor={isDark} color={isDark}>
+            <Div bgColor={isDark} colors={isDark}>
               <Form bgColor={isDark} onSubmit={this.submitLoginCredentials}>
                 <LogoImg
                   alt="nxt watch logo"
@@ -72,7 +73,7 @@ class Login extends Component {
                       : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                   }
                 />
-                <Label color={isDark} htmlFor="username">
+                <Label colors={isDark} htmlFor="username">
                   USERNAME
                 </Label>
                 <Input
@@ -82,7 +83,7 @@ class Login extends Component {
                   value={username}
                   onChange={this.usernameUpdate}
                 />
-                <Label color={isDark} htmlFor="password">
+                <Label colors={isDark} htmlFor="password">
                   PASSWORD
                 </Label>
                 {isChecked ? (
@@ -109,10 +110,12 @@ class Login extends Component {
                     checked={isChecked}
                     onChange={this.checkedUpdate}
                   />
-                  <Label color={isDark}>Show Password</Label>
+                  <Label colors={isDark}>Show Password</Label>
                 </ShowPasswordContainer>
                 <p>{errorMsg}</p>
-                <SubmitBtn type="submit">Login</SubmitBtn>
+                <SubmitBtn type="submit" onClick={this.submitLoginCredentials}>
+                  Login
+                </SubmitBtn>
 
                 {/* <button type="button" onClick={themeChange}>
                   button

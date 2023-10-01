@@ -33,7 +33,7 @@ export const LogoImg = styled.img`
 export const Label = styled.label`
   align-self: flex-start;
   font-weight: 500;
-  color: ${props => (props.color ? null : '#7e858e')};
+  color: ${props => props.colors && '#7e858e'};
   font-size: 16px;
   margin: 5px;
   margin-top: 0px;
