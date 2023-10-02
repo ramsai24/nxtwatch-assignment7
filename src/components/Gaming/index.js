@@ -1,6 +1,7 @@
 // import Cookies from 'js-cookie'
 // import {Link} from 'react-router-dom'
-import {LiaHotjar} from 'react-icons/lia'
+import {SiYoutubegaming} from 'react-icons/si'
+import GamingVideoAPIUrl from '../GamingVideoAPIUrl'
 import {
   RightContainer,
   HomeContainer,
@@ -13,9 +14,7 @@ import LeftMenuBar from '../LeftMenuBar'
 
 import NxtWatchContext from '../../context/nxtWatchContext'
 
-import TrendingVideoAPIUrl from '../TrendingVideoAPIUrl'
-
-const Trending = () => (
+const Gaming = () => (
   <NxtWatchContext.Consumer>
     {value => {
       const {isDark} = value
@@ -27,10 +26,10 @@ const Trending = () => (
             <LeftMenuBar />
             <RightContainer isDark={isDark}>
               <Heading isDark={isDark}>
-                <LiaHotjar />
-                Trending
+                <SiYoutubegaming />
+                Gaming
               </Heading>
-              <TrendingVideoAPIUrl />
+              <GamingVideoAPIUrl />
             </RightContainer>
           </LeftNavAndBannerAndVideosContainer>
         </HomeContainer>
@@ -39,4 +38,4 @@ const Trending = () => (
   </NxtWatchContext.Consumer>
 )
 
-export default Trending
+export default Gaming

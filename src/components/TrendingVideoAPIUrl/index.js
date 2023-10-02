@@ -4,10 +4,10 @@ import Loader from 'react-loader-spinner'
 import NxtWatchContext from '../../context/nxtWatchContext'
 
 import {Div} from './styledComponent'
-import SearchComponent from '../searchComponent'
+
 import FailureView from '../FailureView'
-import NoSearch from '../NoSearch'
-import HomeVideoSuccessView from '../HomeVideoSuccessView'
+
+import TrendingVideoSuccessView from '../TrendingVideoSuccessView'
 
 const apiStatusConstant = {
   initial: 'INITIAL',
@@ -36,11 +36,9 @@ class HomeVideoAPIUrl extends Component {
   getVideos = async () => {
     this.setState({status: apiStatusConstant.loading})
 
-    const {search} = this.state
-
     const jwtToken = Cookies.get('jwt_token')
 
-    const url = `https://apis.ccbp.in/videos/all?search=${search}`
+    const url = `https://apis.ccbp.in/videos/trending`
 
     const options = {
       method: 'GET',
@@ -66,7 +64,7 @@ class HomeVideoAPIUrl extends Component {
         title: each.title,
         viewCount: each.view_count,
       }))
-      //   console.log(dataUpdated)
+      console.log(dataUpdated)
 
       this.setState({
         videosData: dataUpdated,
@@ -110,16 +108,7 @@ class HomeVideoAPIUrl extends Component {
   renderSuccessView = () => {
     const {videosData} = this.state
 
-    const nonempty = videosData.length !== 0
-
-    switch (nonempty) {
-      case true:
-        return <HomeVideoSuccessView data={videosData} />
-      case false:
-        return <NoSearch onRetry={this.onRetry} />
-      default:
-        return null
-    }
+    return <TrendingVideoSuccessView data={videosData} />
   }
 
   renderVideos = () => {
@@ -137,15 +126,7 @@ class HomeVideoAPIUrl extends Component {
   render() {
     const {search} = this.state
     console.log(search)
-    return (
-      <Div>
-        <SearchComponent
-          onSearchValue={this.onSearchValue}
-          onSearch={this.onSearch}
-        />
-        {this.renderVideos()}
-      </Div>
-    )
+    return <Div>{this.renderVideos()}</Div>
   }
 }
 export default HomeVideoAPIUrl

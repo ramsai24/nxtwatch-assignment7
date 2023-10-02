@@ -28,7 +28,7 @@ class Login extends Component {
 
     const payload = {username, password}
 
-    const url = 'https:/apis.ccbp.in/login'
+    const url = 'https://apis.ccbp.in/login'
     const options = {
       method: 'POST',
       body: JSON.stringify(payload),
@@ -121,6 +121,16 @@ class Login extends Component {
                   button
                 </button> */}
               </Form>
+              <div>
+                <h1>Note</h1>
+                <p>
+                  Right Now site under construction,Soon i will be back with
+                  proper Responsive and CSS Layouts
+                </p>
+                <h1>Login Credentials</h1>
+                <p>username:rahul</p>
+                <p>password:rahul@2021</p>
+              </div>
             </Div>
           )
         }}

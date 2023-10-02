@@ -4,10 +4,9 @@ import Loader from 'react-loader-spinner'
 import NxtWatchContext from '../../context/nxtWatchContext'
 
 import {Div} from './styledComponent'
-import SearchComponent from '../searchComponent'
 import FailureView from '../FailureView'
 import NoSearch from '../NoSearch'
-import HomeVideoSuccessView from '../HomeVideoSuccessView'
+import GameVideoSuccessView from '../GameVideoSuccessView'
 
 const apiStatusConstant = {
   initial: 'INITIAL',
@@ -16,7 +15,7 @@ const apiStatusConstant = {
   loading: 'LOADING',
 }
 
-class HomeVideoAPIUrl extends Component {
+class GamingVideoAPIUrl extends Component {
   state = {
     status: apiStatusConstant.initial,
     videosData: '',
@@ -36,11 +35,9 @@ class HomeVideoAPIUrl extends Component {
   getVideos = async () => {
     this.setState({status: apiStatusConstant.loading})
 
-    const {search} = this.state
-
     const jwtToken = Cookies.get('jwt_token')
 
-    const url = `https://apis.ccbp.in/videos/all?search=${search}`
+    const url = `https://apis.ccbp.in/videos/gaming`
 
     const options = {
       method: 'GET',
@@ -51,17 +48,12 @@ class HomeVideoAPIUrl extends Component {
 
     const response = await fetch(url, options)
     const data = await response.json()
-    // console.log(data)
+    console.log(data)
 
     if (response.ok) {
       const dataUpdated = data.videos.map(each => ({
-        channel: this.channelObjectsnakeToCamel(each.channel),
-        // .map(a => ({
-        //   name: a.name,
-        //   profileImageUrl: a.profile_image_url,
-        // })),
         id: each.id,
-        publishedAt: each.published_at,
+
         thumbnailUrl: each.thumbnail_url,
         title: each.title,
         viewCount: each.view_count,
@@ -114,7 +106,7 @@ class HomeVideoAPIUrl extends Component {
 
     switch (nonempty) {
       case true:
-        return <HomeVideoSuccessView data={videosData} />
+        return <GameVideoSuccessView data={videosData} />
       case false:
         return <NoSearch onRetry={this.onRetry} />
       default:
@@ -137,15 +129,7 @@ class HomeVideoAPIUrl extends Component {
   render() {
     const {search} = this.state
     console.log(search)
-    return (
-      <Div>
-        <SearchComponent
-          onSearchValue={this.onSearchValue}
-          onSearch={this.onSearch}
-        />
-        {this.renderVideos()}
-      </Div>
-    )
+    return <Div>{this.renderVideos()}</Div>
   }
 }
-export default HomeVideoAPIUrl
+export default GamingVideoAPIUrl

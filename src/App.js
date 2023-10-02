@@ -4,6 +4,7 @@ import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Login from './components/Login'
 import Home from './components/Home/index'
 import VideoDetails from './components/VideoDetailsAPI'
+import Gaming from './components/Gaming'
 import Trending from './components/Trending'
 import SavedVideo from './components/SavedVideos'
 import NotFound from './components/NotFound'
@@ -67,6 +68,7 @@ class App extends Component {
                 path="/videos/:id"
                 component={VideoDetails}
               />
+              <ProtectedRoute exact path="/gaming" component={Gaming} />
               <ProtectedRoute
                 exact
                 path="/saved-videos"
