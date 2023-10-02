@@ -20,7 +20,7 @@ const HomeVideoSuccessView = props => {
             {data.map(each => {
               const {id} = each
               return (
-                <Link to={`videos/${id}`}>
+                <Link key={each.id} to={`videos/${id}`}>
                   <Li key={each.id}>
                     <Video videoData={each} />
                   </Li>

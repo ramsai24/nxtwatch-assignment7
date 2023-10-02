@@ -10,6 +10,7 @@ import {
   Label,
   ShowPasswordContainer,
   SubmitBtn,
+  ErrorPara,
 } from './styledComponent'
 
 class Login extends Component {
@@ -106,31 +107,48 @@ class Login extends Component {
 
                 <ShowPasswordContainer>
                   <Input
+                    style={{
+                      height: '20px',
+                      paddingTop: '5px',
+                    }}
                     type="checkbox"
                     checked={isChecked}
                     onChange={this.checkedUpdate}
                   />
-                  <Label colors={isDark}>Show Password</Label>
+                  <Label
+                    style={{
+                      paddingTop: '0px',
+                      paddingBottom: '0px',
+                    }}
+                    colors={isDark}
+                  >
+                    Show Password
+                  </Label>
                 </ShowPasswordContainer>
-                <p>{errorMsg}</p>
+
                 <SubmitBtn type="submit" onClick={this.submitLoginCredentials}>
                   Login
                 </SubmitBtn>
+                <ErrorPara>{errorMsg}</ErrorPara>
 
                 {/* <button type="button" onClick={themeChange}>
                   button
                 </button> */}
               </Form>
-              <div>
+              {/* <div>
                 <h1>Note</h1>
                 <p>
                   Right Now site under construction,Soon i will be back with
                   proper Responsive and CSS Layouts
                 </p>
                 <h1>Login Credentials</h1>
-                <p>username:rahul</p>
-                <p>password:rahul@2021</p>
-              </div>
+                <p>
+                  <h1>username</h1>: rahul
+                </p>
+                <p>
+                  <h1>password</h1>: rahul@2021
+                </p>
+              </div> */}
             </Div>
           )
         }}
