@@ -25,7 +25,7 @@ const SavedVideo = () => (
           <LeftNavAndBannerAndVideosContainer>
             <LeftMenuBar />
             <RightContainer isDark={isDark}>
-              <Heading>Saved Vidoes</Heading>
+              <Heading isDark={isDark}>Saved Vidoes</Heading>
               <SavedVideosRendering />
             </RightContainer>
           </LeftNavAndBannerAndVideosContainer>

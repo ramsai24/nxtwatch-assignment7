@@ -30,7 +30,9 @@ export const BannerAndVideosContainer = styled(Div)`
   border: 3px solid violet;
   width: 100%;
 `
-export const Heading = styled.h1``
+export const Heading = styled.h1`
+  color: ${props => (props.isDark ? '#f9f9f9' : '#181818')};
+`
 
 export const Img = styled.img``
 

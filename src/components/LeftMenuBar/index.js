@@ -54,7 +54,7 @@ const LeftMenuBar = () => (
               </Div>
             </Link>
           </Nav>
-          <Div style={{flexDirection: 'column'}}>
+          <Div bgColor={isDark} style={{flexDirection: 'column'}}>
             <ContentPara>CONTACT US</ContentPara>
             <SocialMediaIcons>
               <Img

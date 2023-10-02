@@ -24,7 +24,7 @@ const SavedVideoEach = props => {
               <div>
                 <Heading>{title}</Heading>
                 <Para>{name}</Para>
-                <RowDiv>
+                <RowDiv isDark={isDark}>
                   <Para>{viewCount} views</Para>
                   <Para> . </Para>
                   <Para>

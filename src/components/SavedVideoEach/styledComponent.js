@@ -10,6 +10,9 @@ export const Div = styled.div`
 `
 
 export const RowDiv = styled(Div)`
+  background-color: transparent;
+  //   background-color: ${props => (props.isDark ? '#181818' : '#f9f9f9')};
+  color: ${props => (props.isDark ? '#f9f9f9' : '#181818')};
   display: flex;
   justify-content: ${props => props.justify};
   align-items: center;

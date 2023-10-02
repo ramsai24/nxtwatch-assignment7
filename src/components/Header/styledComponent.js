@@ -2,6 +2,8 @@ import styled from 'styled-components'
 
 export const Div = styled.div``
 
+export const Para = styled.p``
+
 export const HeaderContainer = styled(Div)`
   background-color: ${props => (props.bgColor ? '#212121' : '#f4f4f4')};
 
@@ -9,6 +11,18 @@ export const HeaderContainer = styled(Div)`
   justify-content: space-between;
   border: 1px solid blue;
   padding: 20px;
+`
+export const PopupInsideContainer = styled.div`
+  background-color: ${props => (props.isDark ? '#383838' : '#cccccc')};
+  color: ${props => (props.isDark ? '#f9f9f9' : '#181818')};
+
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
 `
 export const TPLContainer = styled(Div)`
   border: 1px solid yellow;
@@ -47,4 +61,22 @@ export const LogoutBtn = styled(LogoBtn)`
   padding-right: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
+`
+
+export const CancelBtn = styled(LogoutBtn)`
+  color: ${props => (props.isDark ? '#ffffff' : '#000000')};
+  border: 2px solid ${props => (props.isDark ? '#ffffff' : '#000000')};
+  margin: 10px;
+`
+
+export const ConfirmBtn = styled.button`
+  background-color: #3b82f6;
+
+  color: #ffffff;
+  font-weight: 700;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin: 10px;
 `
