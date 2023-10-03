@@ -23,11 +23,9 @@ export const Form = styled.form`
   justify-content: flex-start;
   align-items: flex-start;
   width: 600px;
-
+  border-radius: 5px;
   box-shadow: ${props =>
-    props.bgColor
-      ? `10px 10px 3px 20px #000000`
-      : `10px 10px 80px 20px #ffffff`};
+    props.bgColor ? `10px 10px  #000000` : `10px 10px transparent`};
   //   border: 1px solid green;
   padding: 20px;
   @media screen and (max-width: 576px) {

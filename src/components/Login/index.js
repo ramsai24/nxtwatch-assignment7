@@ -136,7 +136,7 @@ class Login extends Component {
                   button
                 </button> */}
               </Form>
-              {/* <div>
+              <div style={{display: 'flex', flexDirection: 'column'}}>
                 <h1>Note</h1>
                 <p>
                   Right Now site under construction,Soon i will be back with
@@ -144,12 +144,13 @@ class Login extends Component {
                 </p>
                 <h1>Login Credentials</h1>
                 <p>
-                  <h1>username</h1>: rahul
+                  <span style={{fontWeight: 'bolder'}}>username</span>: rahul
                 </p>
                 <p>
-                  <h1>password</h1>: rahul@2021
+                  <span style={{fontWeight: 'bolder'}}>password</span>:
+                  rahul@2021
                 </p>
-              </div> */}
+              </div>
             </Div>
           )
         }}

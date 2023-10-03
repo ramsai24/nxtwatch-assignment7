@@ -4,12 +4,14 @@ export const Div = styled.div``
 
 export const Para = styled.p``
 
+export const Span = styled.span``
+
 export const HeaderContainer = styled(Div)`
   background-color: ${props => (props.bgColor ? '#212121' : '#f4f4f4')};
 
   display: flex;
   justify-content: space-between;
-  border: 1px solid blue;
+  //   border: 1px solid blue;
   padding: 20px;
 `
 export const PopupInsideContainer = styled.div`
@@ -25,19 +27,27 @@ export const PopupInsideContainer = styled.div`
   border-radius: 3px;
 `
 export const TPLContainer = styled(Div)`
-  border: 1px solid yellow;
+  //   border: 1px solid yellow;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
+  width: 350px;
+  @media screen and (max-width: 768px) {
+    width: 250px;
+  }
 `
 
 export const Img = styled.img``
 
 export const LogoImg = styled(Img)`
   width: 180px;
+  @media screen and (max-width: 576px) {
+    width: 120px;
+  }
 `
 
 export const ProfileImg = styled(Img)`
-  width: 30px;
+  width: 35px;
 `
 
 export const LogoBtn = styled.button`
@@ -51,7 +61,29 @@ export const ThemeBtn = styled.button`
   outline: none;
   border: none;
   margin-right: 20px;
+  @media screen and (max-width: 576px) {
+    font-size: 30px;
+  }
 `
+
+export const ProfileImgBtn = styled(ThemeBtn)`
+  @media screen and (max-width: 576px) {
+    display: none;
+  }
+`
+export const MenuBtn = styled(ThemeBtn)`
+  @media screen and (min-width: 576px) {
+    display: none;
+  }
+`
+export const Nav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+`
+
+export const LinkPara = styled(Para)``
 
 export const LogoutBtn = styled(LogoBtn)`
   border: 2px solid ${props => (props.isDark ? '#ffffff' : '#3b82f6')};
@@ -61,6 +93,13 @@ export const LogoutBtn = styled(LogoBtn)`
   padding-right: 15px;
   padding-top: 5px;
   padding-bottom: 5px;
+  width: 120px;
+  height: 40px;
+  font-size: 18px;
+  @media screen and (max-width: 768px) {
+    width: 100px;
+    height: 30px;
+  }
 `
 
 export const CancelBtn = styled(LogoutBtn)`

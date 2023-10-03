@@ -4,6 +4,8 @@ import {
   RightContainer,
   HomeContainer,
   LeftNavAndBannerAndVideosContainer,
+  LeftNavDiv,
+
   //   BannerAndVideosContainer,
 } from './styledComponent'
 import Header from '../Header'
@@ -22,7 +24,10 @@ const Home = () => (
           <Header />
 
           <LeftNavAndBannerAndVideosContainer>
-            <LeftMenuBar />
+            <LeftNavDiv>
+              <LeftMenuBar />
+            </LeftNavDiv>
+
             <RightContainer isDark={isDark}>
               <PrepaidBanner />
               <HomeVideoAPIUrl />

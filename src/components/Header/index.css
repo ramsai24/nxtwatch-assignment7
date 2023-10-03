@@ -6,3 +6,21 @@
   justify-content: center;
   align-items: center;
 }
+
+.light-mode {
+  font-size: 35px;
+}
+@media screen and (max-width: 576px) {
+  .light-mode {
+    font-size: 30px;
+  }
+}
+
+.moon-mode {
+  font-size: 35px;
+}
+@media screen and (max-width: 576px) {
+  .moon-mode {
+    font-size: 30px;
+  }
+}

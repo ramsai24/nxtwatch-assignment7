@@ -1,8 +1,16 @@
-import {withRouter} from 'react-router-dom'
+import {withRouter, Link} from 'react-router-dom'
+import {useState} from 'react'
 import {FaMoon} from 'react-icons/fa'
 import {CiLight} from 'react-icons/ci'
+import {GiHamburgerMenu} from 'react-icons/gi'
 import Cookies from 'js-cookie'
 import Popup from 'reactjs-popup'
+import {LiaHotjar} from 'react-icons/lia'
+// import {Lia500Px} from 'react-icons/lia'
+import {AiFillHome} from 'react-icons/ai'
+import {SiYoutubegaming} from 'react-icons/si'
+import {MdPlaylistAdd} from 'react-icons/md'
+
 import NxtWatchContext from '../../context/nxtWatchContext'
 import './index.css'
 
@@ -19,92 +27,130 @@ import {
   PopupInsideContainer,
   CancelBtn,
   ConfirmBtn,
+  ProfileImgBtn,
+  MenuBtn,
+  Nav,
+  LinkPara,
 } from './styledComponent'
 
-const Header = props => (
-  <NxtWatchContext.Consumer>
-    {value => {
-      const {isDark, themeChange} = value
+const Header = props => {
+  const [navOccurs, onChangeNavOccurs] = useState(false)
 
-      const toHome = () => {
-        const {history} = props
-        history.replace('/')
-      }
+  const navBarDisplay = () => onChangeNavOccurs(prev => !prev.navOccurs)
 
-      const onLogout = () => {
-        const {history} = props
+  return (
+    <NxtWatchContext.Consumer>
+      {value => {
+        const {isDark, themeChange} = value
 
-        Cookies.remove('jwt_token')
-        history.replace('/login')
-      }
+        const toHome = () => {
+          const {history} = props
+          history.replace('/')
+        }
 
-      const onPopup = () => (
-        <Popup
-          modal
-          trigger={
-            <LogoutBtn type="button" onClick={onLogout}>
-              LogOut
-            </LogoutBtn>
-          }
-        >
-          {close => (
-            <PopupInsideContainer isDark={isDark}>
-              <Para>Are you sure, you want to logout</Para>
-              <Div>
-                <CancelBtn isDark={isDark} type="button" onClick={close}>
-                  Cancel
-                </CancelBtn>
-                <ConfirmBtn type="button" onClick={onLogout}>
-                  Confirm
-                </ConfirmBtn>
+        const onLogout = () => {
+          const {history} = props
+
+          Cookies.remove('jwt_token')
+          history.replace('/login')
+        }
+
+        const hamenuList = () => (
+          <Nav>
+            <Link className="linkEl" to="/">
+              <Div bgColor={isDark}>
+                <AiFillHome className="icons-color" />
+                <LinkPara>Home</LinkPara>
               </Div>
-            </PopupInsideContainer>
-          )}
-        </Popup>
-      )
+            </Link>
+            <Link className="linkEl" to="/trending">
+              <Div bgColor={isDark}>
+                <LiaHotjar className="icons-color" />
+                <LinkPara>Trending</LinkPara>
+              </Div>
+            </Link>
 
-      return (
-        <HeaderContainer bgColor={isDark}>
-          <LogoBtn type="button" onClick={toHome}>
-            {isDark ? (
-              <LogoImg
-                alt="nxt watch logo"
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-              />
-            ) : (
-              <LogoImg
-                alt="nxt watch logo"
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-              />
+            <Link className="linkEl" to="/gaming">
+              <Div bgColor={isDark}>
+                <SiYoutubegaming className="icons-color" />{' '}
+                <LinkPara>Gaming</LinkPara>
+              </Div>
+            </Link>
+            <Link className="linkEl" to="/saved-videos">
+              <Div bgColor={isDark}>
+                <MdPlaylistAdd className="icons-color" />
+
+                <LinkPara>Saved Videos</LinkPara>
+              </Div>
+            </Link>
+          </Nav>
+        )
+
+        const onPopup = () => (
+          <Popup
+            modal
+            trigger={
+              <LogoutBtn type="button" onClick={onLogout}>
+                LogOut
+              </LogoutBtn>
+            }
+          >
+            {close => (
+              <PopupInsideContainer isDark={isDark}>
+                <Para>Are you sure, you want to logout</Para>
+                <Div>
+                  <CancelBtn isDark={isDark} type="button" onClick={close}>
+                    Cancel
+                  </CancelBtn>
+                  <ConfirmBtn type="button" onClick={onLogout}>
+                    Confirm
+                  </ConfirmBtn>
+                </Div>
+              </PopupInsideContainer>
             )}
-          </LogoBtn>
-          <TPLContainer>
-            <ThemeBtn type="button" onClick={themeChange}>
+          </Popup>
+        )
+
+        return (
+          <HeaderContainer bgColor={isDark}>
+            <LogoBtn type="button" onClick={toHome}>
               {isDark ? (
-                <CiLight
-                  style={{
-                    color: ' #ffffff',
-                    fontSize: '30px',
-                    fontWeight: '900',
-                  }}
-                  className="light-mode"
+                <LogoImg
+                  alt="nxt watch logo"
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
                 />
               ) : (
-                <FaMoon style={{fontSize: '30px'}} />
+                <LogoImg
+                  alt="nxt watch logo"
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                />
               )}
-            </ThemeBtn>
-            <ThemeBtn>
-              <ProfileImg src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png" />
-            </ThemeBtn>
-            {onPopup()}
-            {/* <LogoutBtn isDark={isDark} type="button" onClick={onPopup}>
+            </LogoBtn>
+            <TPLContainer>
+              <ThemeBtn type="button" onClick={themeChange}>
+                {isDark ? (
+                  <CiLight className="light-mode" />
+                ) : (
+                  <FaMoon className="moon-mode" />
+                )}
+              </ThemeBtn>
+              <ProfileImgBtn>
+                <ProfileImg src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png" />
+              </ProfileImgBtn>
+              <MenuBtn type="button" onClick={navBarDisplay}>
+                {navOccurs ? hamenuList() : <GiHamburgerMenu />}
+              </MenuBtn>
+
+              {onPopup()}
+              {/* <LogoutBtn isDark={isDark} type="button" onClick={onPopup}>
               Logout
             </LogoutBtn> */}
-          </TPLContainer>
-        </HeaderContainer>
-      )
-    }}
-  </NxtWatchContext.Consumer>
-)
+            </TPLContainer>
+          </HeaderContainer>
+        )
+      }}
+    </NxtWatchContext.Consumer>
+  )
+}
 
 export default withRouter(Header)
