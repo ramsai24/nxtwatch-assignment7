@@ -1,15 +1,19 @@
-import {withRouter, Link} from 'react-router-dom'
-import {useState} from 'react'
+import {
+  withRouter,
+  //  Link
+} from 'react-router-dom'
+// import {useState} from 'react'
 import {FaMoon} from 'react-icons/fa'
 import {CiLight} from 'react-icons/ci'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import Cookies from 'js-cookie'
 import Popup from 'reactjs-popup'
-import {LiaHotjar} from 'react-icons/lia'
-// import {Lia500Px} from 'react-icons/lia'
-import {AiFillHome} from 'react-icons/ai'
-import {SiYoutubegaming} from 'react-icons/si'
-import {MdPlaylistAdd} from 'react-icons/md'
+// import {LiaHotjar} from 'react-icons/lia'
+
+// import {AiFillHome} from 'react-icons/ai'
+// import {SiYoutubegaming} from 'react-icons/si'
+// import {MdPlaylistAdd} from 'react-icons/md'
+import Navbar from '../NavBar'
 
 import NxtWatchContext from '../../context/nxtWatchContext'
 import './index.css'
@@ -29,24 +33,23 @@ import {
   ConfirmBtn,
   ProfileImgBtn,
   MenuBtn,
-  Nav,
-  LinkPara,
+  HamMenuContainer,
+  //   LinkPara,
 } from './styledComponent'
 
 const Header = props => {
-  const [navOccurs, onChangeNavOccurs] = useState(false)
+  const toHome = () => {
+    const {history} = props
+    history.replace('/')
+  }
+  //   const [navOccurs, onChangeNavOccurs] = useState(false)
 
-  const navBarDisplay = () => onChangeNavOccurs(prev => !prev.navOccurs)
+  //   const navBarDisplay = () => onChangeNavOccurs(prev => !prev.navOccurs)
 
   return (
     <NxtWatchContext.Consumer>
       {value => {
         const {isDark, themeChange} = value
-
-        const toHome = () => {
-          const {history} = props
-          history.replace('/')
-        }
 
         const onLogout = () => {
           const {history} = props
@@ -56,34 +59,50 @@ const Header = props => {
         }
 
         const hamenuList = () => (
-          <Nav>
-            <Link className="linkEl" to="/">
-              <Div bgColor={isDark}>
-                <AiFillHome className="icons-color" />
-                <LinkPara>Home</LinkPara>
-              </Div>
-            </Link>
-            <Link className="linkEl" to="/trending">
-              <Div bgColor={isDark}>
-                <LiaHotjar className="icons-color" />
-                <LinkPara>Trending</LinkPara>
-              </Div>
-            </Link>
+          <Popup
+            modal
+            trigger={
+              <MenuBtn isDark={isDark} type="button">
+                <GiHamburgerMenu />
+              </MenuBtn>
+            }
+            position={['bottom center']}
+          >
+            {close => (
+              <HamMenuContainer isDark={isDark}>
+                <button type="button" className="close" onClick={close}>
+                  &times;
+                </button>
+                {/* <Link className="linkEl" to="/">
+                  <Div bgColor={isDark}>
+                    <AiFillHome className="icons-color" />
+                    <LinkPara>Home</LinkPara>
+                  </Div>
+                </Link>
+                <Link className="linkEl" to="/trending">
+                  <Div bgColor={isDark}>
+                    <LiaHotjar className="icons-color" />
+                    <LinkPara>Trending</LinkPara>
+                  </Div>
+                </Link>
 
-            <Link className="linkEl" to="/gaming">
-              <Div bgColor={isDark}>
-                <SiYoutubegaming className="icons-color" />{' '}
-                <LinkPara>Gaming</LinkPara>
-              </Div>
-            </Link>
-            <Link className="linkEl" to="/saved-videos">
-              <Div bgColor={isDark}>
-                <MdPlaylistAdd className="icons-color" />
+                <Link className="linkEl" to="/gaming">
+                  <Div bgColor={isDark}>
+                    <SiYoutubegaming className="icons-color" />{' '}
+                    <LinkPara>Gaming</LinkPara>
+                  </Div>
+                </Link>
+                <Link className="linkEl" to="/saved-videos">
+                  <Div bgColor={isDark}>
+                    <MdPlaylistAdd className="icons-color" />
 
-                <LinkPara>Saved Videos</LinkPara>
-              </Div>
-            </Link>
-          </Nav>
+                    <LinkPara>Saved Videos</LinkPara>
+                  </Div>
+                </Link> */}
+                <Navbar />
+              </HamMenuContainer>
+            )}
+          </Popup>
         )
 
         const onPopup = () => (
@@ -127,7 +146,7 @@ const Header = props => {
               )}
             </LogoBtn>
             <TPLContainer>
-              <ThemeBtn type="button" onClick={themeChange}>
+              <ThemeBtn isDark={isDark} type="button" onClick={themeChange}>
                 {isDark ? (
                   <CiLight className="light-mode" />
                 ) : (
@@ -137,9 +156,8 @@ const Header = props => {
               <ProfileImgBtn>
                 <ProfileImg src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png" />
               </ProfileImgBtn>
-              <MenuBtn type="button" onClick={navBarDisplay}>
-                {navOccurs ? hamenuList() : <GiHamburgerMenu />}
-              </MenuBtn>
+
+              {hamenuList()}
 
               {onPopup()}
               {/* <LogoutBtn isDark={isDark} type="button" onClick={onPopup}>

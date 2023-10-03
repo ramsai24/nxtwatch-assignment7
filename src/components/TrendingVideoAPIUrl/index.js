@@ -64,7 +64,7 @@ class HomeVideoAPIUrl extends Component {
         title: each.title,
         viewCount: each.view_count,
       }))
-      console.log(dataUpdated)
+      //   console.log(dataUpdated)
 
       this.setState({
         videosData: dataUpdated,

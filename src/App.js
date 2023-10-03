@@ -1,4 +1,10 @@
-import {BrowserRouter, Redirect, Switch, Route} from 'react-router-dom'
+import {
+  BrowserRouter,
+  withRouter,
+  Redirect,
+  Switch,
+  Route,
+} from 'react-router-dom'
 import {Component} from 'react'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import Login from './components/Login'
@@ -14,7 +20,16 @@ import './App.css'
 
 // Replace your code here
 class App extends Component {
-  state = {isDark: false, selectionLeftMenuNav: '', savedVideosList: []}
+  state = {
+    isDark: false,
+    selectionLeftMenuNav: '',
+    savedVideosList: [],
+    makeRed: '',
+    home: false,
+    gaming: false,
+    trending: false,
+    saved: false,
+  }
 
   themeChange = () => {
     this.setState(prev => ({
@@ -43,8 +58,75 @@ class App extends Component {
     // this.setState({selectionLeftMenuNav: option})
   }
 
+  updateMakeRed = pathname => {
+    // const pathList = ['/', '/trending', '/gaming', '/saved-videos']
+    // console.log(this.props)
+    // const {location} = this.props
+    // const {pathname} = location
+    // console.log(pathname)
+
+    // const makeRedBool = pathList.includes(pathname)
+
+    // const {makeRed} = this.state
+    // console.log(makeRed)
+
+    switch (pathname) {
+      case '/':
+        this.setState({
+          home: true,
+          trending: false,
+          gaming: false,
+          saved: false,
+        })
+        break
+      case '/trending':
+        this.setState({
+          trending: true,
+          home: false,
+          gaming: false,
+          saved: false,
+        })
+        break
+      case '/gaming':
+        this.setState({
+          gaming: true,
+
+          trending: false,
+          home: false,
+          saved: false,
+        })
+        break
+      case '/saved-videos':
+        this.setState({
+          saved: true,
+          home: false,
+          trending: false,
+          gaming: false,
+        })
+        break
+
+      default:
+        break
+    }
+
+    // this.setState({makeRed: makeRedBool})
+  }
+
+  update = pathname => {
+    this.setState({makeRed: pathname})
+  }
+
   render() {
-    const {isDark, selectionLeftMenuNav, savedVideosList} = this.state
+    const {
+      isDark,
+      selectionLeftMenuNav,
+      savedVideosList,
+      makeRed,
+      home,
+      trending,
+      gaming,
+      saved,
+    } = this.state
     console.log(savedVideosList)
     return (
       <NxtwatchContext.Provider
@@ -55,6 +137,14 @@ class App extends Component {
           updateLeftMenuNav: this.updateLeftMenuNav,
           savedVideosList,
           updateSavedVideosList: this.updateSavedVideosList,
+          pathList: ['/', '/trending', '/gaming', '/saved-videos'],
+          makeRed,
+          updateMakeRed: this.updateMakeRed,
+          update: this.update,
+          home,
+          trending,
+          gaming,
+          saved,
         }}
       >
         <>
@@ -84,4 +174,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)

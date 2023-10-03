@@ -1,20 +1,23 @@
-// import Cookies from 'js-cookie'
+// import {LiaHotjar} from 'react-icons/lia'
 
-import {LiaHotjar} from 'react-icons/lia'
-// import {Lia500Px} from 'react-icons/lia'
-import {AiFillHome} from 'react-icons/ai'
-import {SiYoutubegaming} from 'react-icons/si'
-import {MdPlaylistAdd} from 'react-icons/md'
-// import {LiaHotjar} from '@react-icons/all-files/lia/LiaHotjar'
-import {Link, withRouter} from 'react-router-dom'
+// import {AiFillHome} from 'react-icons/ai'
+// import {SiYoutubegaming} from 'react-icons/si'
+// import {MdPlaylistAdd} from 'react-icons/md'
+
+import {
+  // Link,
+  withRouter,
+} from 'react-router-dom'
 import NxtWatchContext from '../../context/nxtWatchContext'
+import Navbar from '../NavBar'
+
 import {
   Div,
   Paragraph,
   Img,
   LeftNavContainer,
-  Nav,
-  LinkPara,
+  //   Nav,
+  //   LinkPara,
   ContentPara,
   SocialMediaIcons,
 } from './styledComponent'
@@ -26,7 +29,7 @@ const LeftMenuBar = () => (
       const {isDark} = value
       return (
         <LeftNavContainer bgColor={isDark}>
-          <Nav>
+          {/* <Nav>
             <Link className="linkEl" to="/">
               <Div bgColor={isDark}>
                 <AiFillHome className="icons-color" />
@@ -53,7 +56,8 @@ const LeftMenuBar = () => (
                 <LinkPara>Saved Videos</LinkPara>
               </Div>
             </Link>
-          </Nav>
+          </Nav> */}
+          <Navbar />
           <Div bgColor={isDark} style={{flexDirection: 'column'}}>
             <ContentPara>CONTACT US</ContentPara>
             <SocialMediaIcons>

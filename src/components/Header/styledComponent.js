@@ -14,6 +14,15 @@ export const HeaderContainer = styled(Div)`
   //   border: 1px solid blue;
   padding: 20px;
 `
+
+export const HamMenuContainer = styled.div`
+  background-color: ${props => (props.isDark ? '#383838' : '#cccccc')};
+  color: ${props => (props.isDark ? '#f9f9f9' : '#181818')};
+  background-size: cover;
+  height: 500px;
+  padding: 20px;
+`
+
 export const PopupInsideContainer = styled.div`
   background-color: ${props => (props.isDark ? '#383838' : '#cccccc')};
   color: ${props => (props.isDark ? '#f9f9f9' : '#181818')};
@@ -57,6 +66,7 @@ export const LogoBtn = styled.button`
 `
 
 export const ThemeBtn = styled.button`
+  color: ${props => (props.isDark ? '#f9f9f9' : '#181818')};
   background-color: transparent;
   outline: none;
   border: none;
@@ -77,10 +87,13 @@ export const MenuBtn = styled(ThemeBtn)`
   }
 `
 export const Nav = styled.nav`
+  background-color: ${props => (props.isDark ? '#383838' : '#cccccc')};
+  background-size: cover;
+  width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
 `
 
 export const LinkPara = styled(Para)``

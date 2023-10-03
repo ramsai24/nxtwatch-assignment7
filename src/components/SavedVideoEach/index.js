@@ -5,7 +5,7 @@ import NxtWatchContext from '../../context/nxtWatchContext'
 
 const SavedVideoEach = props => {
   const {videoData} = props
-  console.log(videoData)
+  //   console.log(videoData)
 
   const {channel, publishedAt, thumbnailUrl, title, viewCount} = videoData
 

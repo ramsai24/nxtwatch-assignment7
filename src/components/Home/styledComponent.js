@@ -2,11 +2,7 @@ import styled from 'styled-components'
 
 export const Div = styled.div``
 
-export const LeftNavDiv = styled(Div)`
-  @media screen and (max-width: 576px) {
-    display: none;
-  }
-`
+export const LeftNavDiv = styled(Div)``
 
 export const HomeContainer = styled(Div)`
   background-color: ${props => (props.bgColor ? '#181818' : '#f9f9f9')};

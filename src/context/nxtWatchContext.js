@@ -7,6 +7,15 @@ const NxtWatchContext = React.createContext({
   updateLeftMenuNav: () => {},
   savedVideosList: '',
   updateSavedVideosList: () => {},
+  pathList: [],
+  home: false,
+  gaming: false,
+  trending: false,
+  saved: false,
+  makeRed: '',
+
+  updateMakeRed: () => {},
+  update: () => {},
 })
 
 export default NxtWatchContext
