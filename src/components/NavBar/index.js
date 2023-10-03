@@ -46,12 +46,13 @@ const Navbar = props => {
           update(pathname)
           updateMakeRed(pathname)
         }
+        console.log(isDark)
 
         return (
           <Nav>
             <Link key="1" className="linkEl" to="/" onClick={updates}>
-              <Div bgColor={isDark} makeRed={home} pathName={pathname}>
-                <Span>
+              <Div isDark={isDark} makeRed={home} pathName={pathname}>
+                <Span isDark={isDark} makeRed={home}>
                   <AiFillHome className="icons-color" />
                 </Span>
 
@@ -59,8 +60,8 @@ const Navbar = props => {
               </Div>
             </Link>
             <Link key="2" className="linkEl" to="/trending" onClick={updates}>
-              <Div bgColor={isDark} makeRed={trending} pathName={pathname}>
-                <Span>
+              <Div isDark={isDark} makeRed={trending} pathName={pathname}>
+                <Span isDark={isDark} makeRed={trending}>
                   <LiaHotjar className="icons-color" />
                 </Span>
 
@@ -69,8 +70,8 @@ const Navbar = props => {
             </Link>
 
             <Link key="3" className="linkEl" to="/gaming" onClick={updates}>
-              <Div bgColor={isDark} makeRed={gaming} pathName={pathname}>
-                <Span>
+              <Div isDark={isDark} makeRed={gaming} pathName={pathname}>
+                <Span isDark={isDark} makeRed={gaming}>
                   <SiYoutubegaming className="icons-color" />{' '}
                 </Span>
 
@@ -83,8 +84,8 @@ const Navbar = props => {
               to="/saved-videos"
               onClick={updates}
             >
-              <Div bgColor={isDark} makeRed={saved} pathName={pathname}>
-                <Span>
+              <Div isDark={isDark} makeRed={saved} pathName={pathname}>
+                <Span isDark={isDark} makeRed={saved}>
                   <MdPlaylistAdd className="icons-color" />
                 </Span>
 

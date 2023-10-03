@@ -1,8 +1,41 @@
 import styled from 'styled-components'
 
+const dark = theme => {
+  console.log(`dark theme ${theme}`)
+  if (theme) {
+    return '#909090'
+  }
+  return 'transparent'
+}
+
+const light = theme => {
+  console.log(`light theme ${theme}`)
+  if (theme) {
+    return '#cbd5e1'
+  }
+  return 'transparent'
+}
+
+const darkColor = theme => {
+  console.log(`dark theme ${theme}`)
+  if (theme) {
+    return '#ff0b37'
+  }
+  return '#f4f4f4'
+}
+
+const lightColor = theme => {
+  console.log(`light theme ${theme}`)
+  if (theme) {
+    return '#ff0b37'
+  }
+  return '#212121'
+}
+
 export const Div = styled.div`
-  background-color: ${props => (props.makeRed ? '#909090' : 'transparent')};
-  color: ${props => (props.bgColor ? '#f4f4f4' : '#212121')};
+  background-color: ${props =>
+    props.isDark ? dark(props.makeRed) : light(props.makeRed)};
+  color: ${props => (props.isDark ? '#f4f4f4' : '#212121')};
 
   display: flex;
   justify-content: flex-start;
@@ -33,7 +66,10 @@ export const Nav = styled.nav`
 
 export const LinkPara = styled(Para)``
 
-export const Span = styled.span``
+export const Span = styled.span`
+  color: ${props =>
+    props.isDark ? darkColor(props.makeRed) : lightColor(props.makeRed)};
+`
 
 //   background-color: ${props => {
 //     const {pathName} = props
