@@ -14,16 +14,21 @@ const Navbar = props => {
   const {pathname} = location
   //   console.log(pathname)
 
-  const home = '/' === pathname
+  const h = '/'
+  const t = '/trending'
+  const g = '/gaming'
+  const s = '/saved-videos'
+
+  const home = h === pathname
   console.log(`home: ${home}`)
 
-  const trending = '/trending' === pathname
+  const trending = t === pathname
   console.log(`trending: ${trending}`)
 
-  const gaming = '/gaming' === pathname
+  const gaming = g === pathname
   console.log(`gaming: ${gaming}`)
 
-  const saved = '/saved-videos' === pathname
+  const saved = s === pathname
   console.log(`saved: ${saved}`)
 
   return (
