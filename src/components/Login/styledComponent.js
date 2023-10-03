@@ -11,7 +11,7 @@ export const Div = styled.div`
   font-size: 20px;
 
   @media screen and (max-width: 576px) {
-    width: 90%;
+    width: 500px;
     font-size: 14px;
   }
 `
@@ -30,12 +30,16 @@ export const Form = styled.form`
       : `10px 10px 80px 20px #ffffff`};
   //   border: 1px solid green;
   padding: 20px;
+  @media screen and (max-width: 576px) {
+    width: 90%;
+  }
 `
 
 export const LogoImg = styled.img`
   //   height: 100px;
   width: 60%;
   margin-bottom: 60px;
+  align-self: center;
 `
 export const Label = styled.label`
   align-self: flex-start;
@@ -48,7 +52,8 @@ export const Label = styled.label`
   flex-shrink: 0;
   padding-top: 10px;
   padding-bottom: 5px;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 700;
   //   border: 1px solid yellow;
 `
 export const Input = styled.input`
@@ -62,6 +67,8 @@ export const Input = styled.input`
   font-weight: 500;
   padding: 10px;
   border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
 `
 
 export const ShowPasswordContainer = styled.div`
@@ -95,4 +102,6 @@ export const Para = styled.p``
 
 export const ErrorPara = styled(Para)`
   color: #ff0b37;
+  font-weight: 500;
+  font-size: 14px;
 `

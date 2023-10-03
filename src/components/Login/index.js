@@ -109,6 +109,7 @@ class Login extends Component {
                   <Input
                     style={{
                       height: '20px',
+
                       paddingTop: '5px',
                     }}
                     type="checkbox"
@@ -117,7 +118,7 @@ class Login extends Component {
                   />
                   <Label
                     style={{
-                      paddingTop: '0px',
+                      paddingTop: '5px',
                       paddingBottom: '0px',
                     }}
                     colors={isDark}
