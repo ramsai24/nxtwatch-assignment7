@@ -33,11 +33,16 @@ const lightColor = theme => {
 }
 
 export const Div = styled.div`
+  width: 300px;
+
   background-color: ${props =>
     props.isDark ? dark(props.makeRed) : light(props.makeRed)};
   color: ${props => (props.isDark ? '#f4f4f4' : '#212121')};
 
   display: flex;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   justify-content: flex-start;
   align-items: flex-start;
   //   border: 1px solid pink;
@@ -49,9 +54,12 @@ export const Para = styled.p`
 
 export const Nav = styled.nav`
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  //   border: 1px solid yellow;
+  padding-right: 0px;
 `
 
 // export const Nav = styled.nav`

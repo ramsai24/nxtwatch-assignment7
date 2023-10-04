@@ -20,16 +20,20 @@ import {
   //   LinkPara,
   ContentPara,
   SocialMediaIcons,
+  ContactUsContainer,
 } from './styledComponent'
 import './index.css'
 
-const LeftMenuBar = () => (
-  <NxtWatchContext.Consumer>
-    {value => {
-      const {isDark} = value
-      return (
-        <LeftNavContainer bgColor={isDark}>
-          {/* <Nav>
+const LeftMenuBar = props => {
+  const {close} = props
+
+  return (
+    <NxtWatchContext.Consumer>
+      {value => {
+        const {isDark} = value
+        return (
+          <LeftNavContainer bgColor={isDark}>
+            {/* <Nav>
             <Link className="linkEl" to="/">
               <Div bgColor={isDark}>
                 <AiFillHome className="icons-color" />
@@ -57,31 +61,34 @@ const LeftMenuBar = () => (
               </Div>
             </Link>
           </Nav> */}
-          <Navbar />
-          <Div bgColor={isDark} style={{flexDirection: 'column'}}>
-            <ContentPara>CONTACT US</ContentPara>
-            <SocialMediaIcons>
-              <Img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
-                alt="facebook logo"
-              />
-              <Img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
-                alt="twitter logo"
-              />
-              <Img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
-                alt="linked in logo"
-              />
-            </SocialMediaIcons>
-            <Paragraph className="para">
-              Enjoy! Now to see your channels and recommendations!
-            </Paragraph>
-          </Div>
-        </LeftNavContainer>
-      )
-    }}
-  </NxtWatchContext.Consumer>
-)
-
+            <Navbar close={close} />
+            <ContactUsContainer
+              bgColor={isDark}
+              style={{flexDirection: 'column'}}
+            >
+              <ContentPara>CONTACT US</ContentPara>
+              <SocialMediaIcons>
+                <Img
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                  alt="facebook logo"
+                />
+                <Img
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                  alt="twitter logo"
+                />
+                <Img
+                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                  alt="linked in logo"
+                />
+              </SocialMediaIcons>
+              <Paragraph className="para">
+                Enjoy! Now to see your channels and recommendations!
+              </Paragraph>
+            </ContactUsContainer>
+          </LeftNavContainer>
+        )
+      }}
+    </NxtWatchContext.Consumer>
+  )
+}
 export default withRouter(LeftMenuBar)

@@ -19,8 +19,15 @@ export const HamMenuContainer = styled.div`
   background-color: ${props => (props.isDark ? '#383838' : '#cccccc')};
   color: ${props => (props.isDark ? '#f9f9f9' : '#181818')};
   background-size: cover;
-  height: 500px;
+  //   width: 100vw;
+  height: 100vh;
+
+  //   height: 500px;
   padding: 20px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
 `
 
 export const PopupInsideContainer = styled.div`

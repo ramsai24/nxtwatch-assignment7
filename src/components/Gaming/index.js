@@ -7,6 +7,7 @@ import {
   HomeContainer,
   LeftNavAndBannerAndVideosContainer,
   Heading,
+  LeftNavDiv,
   //   BannerAndVideosContainer,
 } from './styledComponent'
 import Header from '../Header'
@@ -23,7 +24,9 @@ const Gaming = () => (
           <Header />
 
           <LeftNavAndBannerAndVideosContainer>
-            <LeftMenuBar />
+            <LeftNavDiv>
+              <LeftMenuBar />
+            </LeftNavDiv>
             <RightContainer isDark={isDark}>
               <Heading isDark={isDark}>
                 <SiYoutubegaming />

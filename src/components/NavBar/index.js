@@ -10,7 +10,7 @@ import './index.css'
 
 const Navbar = props => {
   console.log(`props`)
-  const {location} = props
+  const {location, close} = props
   const {pathname} = location
   //   console.log(pathname)
 
@@ -51,7 +51,12 @@ const Navbar = props => {
         return (
           <Nav>
             <Link key="1" className="linkEl" to="/" onClick={updates}>
-              <Div isDark={isDark} makeRed={home} pathName={pathname}>
+              <Div
+                isDark={isDark}
+                makeRed={home}
+                pathName={pathname}
+                onClick={close}
+              >
                 <Span isDark={isDark} makeRed={home}>
                   <AiFillHome className="icons-color" />
                 </Span>
@@ -60,7 +65,12 @@ const Navbar = props => {
               </Div>
             </Link>
             <Link key="2" className="linkEl" to="/trending" onClick={updates}>
-              <Div isDark={isDark} makeRed={trending} pathName={pathname}>
+              <Div
+                isDark={isDark}
+                makeRed={trending}
+                pathName={pathname}
+                onClick={close}
+              >
                 <Span isDark={isDark} makeRed={trending}>
                   <LiaHotjar className="icons-color" />
                 </Span>
@@ -70,7 +80,12 @@ const Navbar = props => {
             </Link>
 
             <Link key="3" className="linkEl" to="/gaming" onClick={updates}>
-              <Div isDark={isDark} makeRed={gaming} pathName={pathname}>
+              <Div
+                isDark={isDark}
+                makeRed={gaming}
+                pathName={pathname}
+                onClick={close}
+              >
                 <Span isDark={isDark} makeRed={gaming}>
                   <SiYoutubegaming className="icons-color" />{' '}
                 </Span>
@@ -84,7 +99,12 @@ const Navbar = props => {
               to="/saved-videos"
               onClick={updates}
             >
-              <Div isDark={isDark} makeRed={saved} pathName={pathname}>
+              <Div
+                isDark={isDark}
+                makeRed={saved}
+                pathName={pathname}
+                onClick={close}
+              >
                 <Span isDark={isDark} makeRed={saved}>
                   <MdPlaylistAdd className="icons-color" />
                 </Span>

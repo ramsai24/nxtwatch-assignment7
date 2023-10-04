@@ -13,7 +13,7 @@ import Popup from 'reactjs-popup'
 // import {AiFillHome} from 'react-icons/ai'
 // import {SiYoutubegaming} from 'react-icons/si'
 // import {MdPlaylistAdd} from 'react-icons/md'
-import Navbar from '../NavBar'
+// import Navbar from '../NavBar'
 
 import NxtWatchContext from '../../context/nxtWatchContext'
 import './index.css'
@@ -36,6 +36,7 @@ import {
   HamMenuContainer,
   //   LinkPara,
 } from './styledComponent'
+import LeftMenuBar from '../LeftMenuBar'
 
 const Header = props => {
   const toHome = () => {
@@ -70,9 +71,9 @@ const Header = props => {
           >
             {close => (
               <HamMenuContainer isDark={isDark}>
-                <button type="button" className="close" onClick={close}>
+                {/* <button type="button" className="close" onClick={close}>
                   &times;
-                </button>
+                </button> */}
                 {/* <Link className="linkEl" to="/">
                   <Div bgColor={isDark}>
                     <AiFillHome className="icons-color" />
@@ -99,7 +100,7 @@ const Header = props => {
                     <LinkPara>Saved Videos</LinkPara>
                   </Div>
                 </Link> */}
-                <Navbar />
+                <LeftMenuBar close={close} />
               </HamMenuContainer>
             )}
           </Popup>

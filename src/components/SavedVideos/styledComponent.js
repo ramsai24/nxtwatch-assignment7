@@ -22,6 +22,12 @@ export const RightContainer = styled.div`
   overflow: auto;
   height: 90vh;
 `
+export const LeftNavDiv = styled(Div)`
+  display: block;
+  @media screen and (max-width: 576px) {
+    display: none;
+  }
+`
 
 export const BannerAndVideosContainer = styled(Div)`
   display: flex;
